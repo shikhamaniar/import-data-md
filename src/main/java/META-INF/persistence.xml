@@ -5,8 +5,8 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<persistence-unit name="assignment1_ImportData"
 		transaction-type="RESOURCE_LOCAL">
-		<class>model.Employment</class>
-		<class>model.Person</class>
+		<class>com.assignment.importData.model.Employment</class>
+		<class>com.assignment.importData.model.Person</class>
 		<properties>
 			<property name="javax.persistence.jdbc.url"
 				value="jdbc:postgresql://localhost:5432/assignment1" />
