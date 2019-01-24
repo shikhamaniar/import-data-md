@@ -1,0 +1,31 @@
+[
+	{
+		"firstName": "Ramesh",
+		"lastName": "Kalelkar",
+		"email": "rkalelkar@samara.com",
+		"mobile": "+918844775566",
+		"gender": "Male",
+		"city": "Ranchi",
+		"country": "India",
+		"employment": {
+			"employerName": "ITConscius",
+			"employmentDate": "15-7-2012",
+			"designation": "Managing Director"
+		}
+	},
+	{
+		"firstName": "Sudha",
+		"lastName": "Mukerji",
+		"email": "s.mukerji@jio.com",
+		"mobile": "+918844775588",
+		"gender": "Female",
+		"city": "Jaipur",
+		"state": "Rajasthan",
+		"country": "India",
+		"employment": {
+			"employerName": "JIO",
+			"employmentDate": "15-7-2016",
+			"designation": "Project Executive Manager"
+		}
+	}
+]
