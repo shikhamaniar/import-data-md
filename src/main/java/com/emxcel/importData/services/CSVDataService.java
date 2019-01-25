@@ -1,45 +1,29 @@
 package com.emxcel.importData.services;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
 import com.emxcel.importData.model.Employment;
 import com.emxcel.importData.model.Person;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 
 public class CSVDataService implements DataService {
-	EntityManagerFactory emf;
+	PersistenceManager pm;
 	EntityManager em;
-	String file;
+	String file = "E:\\winter2019(2)\\importData\\src\\main\\resources\\data.csv";
 
 	@Override
 	public void readData() {
-		file = "E:\\winter2019(2)\\importData\\src\\main\\resources\\data.csv";
-		emf = Persistence.createEntityManagerFactory("assignment1_ImportData");
-		em = emf.createEntityManager();
-		// Create an object of filereader
-		// class with CSV file as a parameter.
-		FileReader filereader = null;
 		try {
-			filereader = new FileReader(file);
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
+			pm = new PersistenceManager();
+			em = pm.getEntityManager();
+			FileReader filereader = new FileReader(file);
+			CSVReader csvReader = new CSVReaderBuilder(filereader).withSkipLines(1).build();
+			String[] nextRecord;
 
-		// create csvReader object passing
-		// file reader as a parameter
-		CSVReader csvReader = new CSVReaderBuilder(filereader).withSkipLines(1).build();
-		String[] nextRecord;
-
-		// we are going to read data line by line
-		try {
 			while ((nextRecord = csvReader.readNext()) != null) {
 				em.getTransaction().begin();
 				Person person = new Person();
@@ -65,15 +49,14 @@ public class CSVDataService implements DataService {
 				em.persist(person);
 				em.persist(employment);
 				em.getTransaction().commit();
-
 			}
-			System.out.println("Data Added (JSON)");
+			System.out.println("Data Added (CSV)");
 		} catch (IOException e) {
 			System.out.println("File NOT FOUND. Pleae enter proper path and file name.(JSON or CSV");
 		} catch (java.text.ParseException e) {
 			e.printStackTrace();
 		} finally {
-			emf.close();
+			pm.close();
 			em.close();
 		}
 	}

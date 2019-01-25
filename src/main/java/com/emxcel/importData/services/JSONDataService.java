@@ -6,9 +6,6 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -18,21 +15,22 @@ import com.emxcel.importData.model.Employment;
 import com.emxcel.importData.model.Person;
 
 public class JSONDataService implements DataService {
-	EntityManagerFactory emf;
+	PersistenceManager pm;
 	EntityManager em;
-	String file;
+	String file = "E:\\winter2019(2)\\importData\\src\\main\\resources\\data.json";
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public void readData() {
-		emf = Persistence.createEntityManagerFactory("assignment1_ImportData");
-		em = emf.createEntityManager();
-		file = "E:\\winter2019(2)\\importData\\src\\main\\resources\\data.json";
-		JSONParser jsonParser = new JSONParser();
+		pm = new PersistenceManager();
+		em = pm.getEntityManager();
+		JSONParser jsonParser;
+		FileReader reader;
+		JSONArray jsonArray;
 		try {
-			FileReader reader;
+			jsonParser = new JSONParser();
 			reader = new FileReader(file);
-			JSONArray jsonArray = (JSONArray) jsonParser.parse(reader);
+			jsonArray = (JSONArray) jsonParser.parse(reader);
 
 			for (Object obj : jsonArray) {
 				em.getTransaction().begin();
@@ -70,7 +68,7 @@ public class JSONDataService implements DataService {
 				em.persist(person);
 
 				em.getTransaction().commit();
-				
+
 			}
 			System.out.println("Data Added (JSON)");
 		} catch (FileNotFoundException e) {
@@ -84,7 +82,7 @@ public class JSONDataService implements DataService {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		} finally {
-			emf.close();
+			pm.close();
 			em.close();
 		}
 

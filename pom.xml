@@ -3,13 +3,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>javaAssignment</groupId>
-	<artifactId>assignment1_ImportData</artifactId>
+	<groupId>com.emxcel</groupId>
+	<artifactId>import-data</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	
 
-	<name>assignment1_ImportData</name>
-	<url>http://maven.apache.org</url>
+	<name>import-data</name>
+	<url>http://www.example.com</url>
 
 	<properties>
 		<java.version>11</java.version>
@@ -28,7 +28,7 @@
 					<archive>
 						<manifest>
 							<addClasspath>true</addClasspath>
-							<mainClass>com.emxcel.importData.main.MainClass</mainClass>
+							<mainClass>com.emxcel.importData.MainClass</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>

@@ -14,7 +14,7 @@ import javax.persistence.Table;
 public class Person {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	@Column(name = "first_name")
 	private String firstName;
@@ -28,33 +28,8 @@ public class Person {
 	private String country;
 	private String mobile;
 	private String email;
-	@OneToOne(cascade=CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.ALL)
 	private Employment employment;
-
-	
-	public Person() {
-	}
-
-	public Person(long id, String firstName, String middleName, String lastName, String gender, String city,
-			String state, String country, String mobile, String email, Employment employment) {
-		this.firstName = firstName;
-		this.middleName = middleName;
-		this.lastName = lastName;
-		this.gender = gender;
-		this.city = city;
-		this.state = state;
-		this.country = country;
-		this.mobile = mobile;
-		this.email = email;
-		this.employment = employment;
-	}
-
-	@Override
-	public String toString() {
-		return "Person [id=" + id + ", firstName=" + firstName + ", middleName=" + middleName + ", lastName=" + lastName
-				+ ", gender=" + gender + ", city=" + city + ", state=" + state + ", country=" + country + ", mobile="
-				+ mobile + ", email=" + email + ", employment=" + employment + "]";
-	}
 
 	public String getFirstName() {
 		return firstName;

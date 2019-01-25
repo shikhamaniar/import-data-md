@@ -1,5 +1,7 @@
 package com.emxcel.importData.model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,28 +14,13 @@ import javax.persistence.Table;
 public class Employment {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	@Column(name = "employer_name")
 	private String employerName;
 	private String designation;
-	@Column(name = "employment_date",columnDefinition="DATE")
-	private java.sql.Date employmentDate;
-
-	public Employment() {
-	}
-
-	public Employment(long id, String employerName, String designation, java.sql.Date employmentDate) {
-		this.employerName = employerName;
-		this.designation = designation;
-		this.employmentDate = employmentDate;
-	}
-
-	@Override
-	public String toString() {
-		return "Employment [id=" + id + ", employerName=" + employerName + ", designation=" + designation
-				+ ", employmentDate=" + employmentDate + "]";
-	}
+	@Column(name = "employment_date", columnDefinition = "DATE")
+	private Date employmentDate;
 
 	public String getDesignation() {
 		return designation;
@@ -51,7 +38,7 @@ public class Employment {
 		this.employerName = employerName;
 	}
 
-	public java.sql.Date getEmploymentDate() {
+	public Date getEmploymentDate() {
 		return employmentDate;
 	}
 
