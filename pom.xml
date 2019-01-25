@@ -28,7 +28,7 @@
 					<archive>
 						<manifest>
 							<addClasspath>true</addClasspath>
-							<mainClass>com.assignment.importData.main.MainClass</mainClass>
+							<mainClass>com.emxcel.importData.main.MainClass</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>

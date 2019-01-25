@@ -1,4 +1,4 @@
-package com.assignment.importData.model;
+package com.emxcel.importData.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

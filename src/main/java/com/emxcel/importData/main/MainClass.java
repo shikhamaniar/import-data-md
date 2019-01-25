@@ -1,6 +1,6 @@
-package com.assignment.importData.main;
+package com.emxcel.importData.main;
 
-import com.assignment.importData.services.DataServicesFactory;
+import com.emxcel.importData.services.DataServicesFactory;
 
 public class MainClass {
 

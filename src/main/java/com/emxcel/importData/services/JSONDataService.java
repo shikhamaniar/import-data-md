@@ -1,4 +1,4 @@
-package com.assignment.importData.services;
+package com.emxcel.importData.services;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -14,8 +14,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import com.assignment.importData.model.Employment;
-import com.assignment.importData.model.Person;
+import com.emxcel.importData.model.Employment;
+import com.emxcel.importData.model.Person;
 
 public class JSONDataService implements DataService {
 	EntityManagerFactory emf;

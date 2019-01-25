@@ -1,4 +1,4 @@
-package com.assignment.importData.services;
+package com.emxcel.importData.services;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -9,8 +9,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import com.assignment.importData.model.Employment;
-import com.assignment.importData.model.Person;
+import com.emxcel.importData.model.Employment;
+import com.emxcel.importData.model.Person;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 
